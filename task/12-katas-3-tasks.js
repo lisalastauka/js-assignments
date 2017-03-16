@@ -94,10 +94,10 @@ UrlShortener.prototype = {
     encode: function(url) {
         throw new Error('Not implemented');
     },
-    
+
     decode: function(code) {
         throw new Error('Not implemented');
-    } 
+    }
 }
 
 

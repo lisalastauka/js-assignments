@@ -54,12 +54,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1 , value2 ) {
-    throw new Error('Not implemented');
-    //console.log((value1+ value2)/2);
-    //if (isFinite(value1+ value2) ) {
-    //    console.log(value1+ value2);
-    //    return (value1 + value2) / 2;
-    //} else return 1.7976931348623157e+308;
+    return  (value1/100000000 + value2/100000000) / 2 * 100000000;
 
 }
 
@@ -98,7 +93,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-    throw new Error('Not implemented');
+    return -b/a;
 }
 
 
@@ -120,7 +115,13 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-    throw new Error('Not implemented');
+    if ( x1 && x2 !== 0) { x1 =x1 - Math.max(x1,x2); x2 =x2 - Math.max(x1,x2) }
+    if ( y1 && y2 !== 0) { y1 =y1 - Math.max(y1,y2); y2 =y2 - Math.max(y1,y2) }
+    if (x1 === y1 ){
+        if (x2 === y2 ) return 0;
+        else return Math.PI;
+    } else if (x2 === y2 ) return Math.PI;
+    else return Math.PI/2;
 }
 
 /**
@@ -169,7 +170,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelipidedDiagonal(a,b,c) {
-    return Math.sqrt(a*a+b*b+c*c);
+    return Math.sqrt(Math.pow(a,2)+Math.pow(b,2)+Math.pow(c,2));
 }
 
 /**

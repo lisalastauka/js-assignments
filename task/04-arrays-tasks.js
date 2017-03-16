@@ -461,14 +461,14 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
-   //let arr = new Array(n).fill(new Array(n).fill(0));
-   //return arr.map((e,i,a)=> {
-   //   console.log(e,i,a);
-   //   e[i]=1;
-   //   console.log(a);
-   //   return e;
-   //})
+   let arr = new Array(n).fill(null);
+    const fill = function(e,i){
+        e = new Array(n).fill(0);
+        e[i] = 1;
+        return e;
+    };
+
+   return  arr.map(fill);
 }
 
 /**
@@ -550,12 +550,9 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-   //arr= arr.reduce(
-   //    (acc, val) => acc.concat( val),
-   //    []
-   //)
-   // return childrenSelector(arr)   ;
-   throw new Error('Not implemented');
+    return arr.map(childrenSelector).reduce((acc, val) => {
+        return  acc.concat(val)
+    }, [] );
 }
 
 
@@ -595,16 +592,14 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-   //var isOdd = arr.length%2;
-   //if (arr.length%2){
-   //   console.log(arr.slice(arr.length/2).concat(arr[Math.round(arr.length/2)]).concat(arr.slice(0,arr.length/2)));
-   //   return arr.slice(Math.round(arr.length/2)).concat([arr[Math.round(arr.length/2)]]).concat(arr.slice(0,Math.round(arr.length/2)));
-   //} else {
-   //   return arr.slice(arr.length/2).concat(arr.slice(0,arr.length/2));
-   //}
-
-   throw new Error('Not implemented');
-
+    if (arr.length<2){return arr}
+   var n = arr.length%2;
+    var div = Math.round(arr.length/2);
+   if (n){
+      return arr.slice(div).concat(arr[div-1]).concat(arr.slice(0,div-1));
+   } else {
+      return arr.slice(div).concat(arr.slice(0,div));
+   }
 }
 
 

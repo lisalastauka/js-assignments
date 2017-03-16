@@ -221,12 +221,8 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
-    //let arr = [];
-    // str.forEach();  {
-    //    arr.push(str.charCodeAt(6)+13);
-    //}
-    //return String.fromCharCode(...arr);
+    let chiphre  = ["abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"]
+    return str.replace(/[a-zA-Z]/g,x => chiphre[1][chiphre[0].indexOf(x)])
 }
 
 /**
@@ -272,7 +268,11 @@ function isString(value = null) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+   const deck = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣',
+  'A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦',
+  'A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥',
+  'A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
+    return deck.indexOf(value);
 }
 
 
